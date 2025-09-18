@@ -1,4 +1,4 @@
-# name-of-tox here
+# Scry Plugin
 
 ## Summary
 
