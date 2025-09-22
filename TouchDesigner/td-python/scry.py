@@ -16,7 +16,12 @@ class scry:
 
     def LogError(self, message: str, absFrame: int, severity: int, type, source: callable):
         error: scryEntities.scryError = scryEntities.scryError(
-            message=message, severity=severity, opType=type, source=source.path, absFrame=absFrame)
+            message=message,
+            severity=severity,
+            opType=type,
+            source=source.path,
+            sourceOpType=source.type,
+            absFrame=absFrame)
 
         # NOTE check if ws is currently active before attempting to send
         if self.check_active():
