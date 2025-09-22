@@ -74,6 +74,7 @@ class scryError(scryAbstractMessage):
             self,
             message: str,
             source: str,
+            sourceOpType: str,
             absFrame: int,
             severity: int,
             opType: scryErrorOpType):
@@ -85,6 +86,7 @@ class scryError(scryAbstractMessage):
             severity=scryErrorLevel(severity),
             msgType=scryMsgType.error)
 
+        self.sourceOpType = sourceOpType
         self.opType = scryErrorOpType(opType)
 
     def __repr__(self) -> str:
@@ -93,7 +95,8 @@ class scryError(scryAbstractMessage):
     @property
     def toDict(self) -> dict:
         dataAsDict: dict = self._toDict
-        dataAsDict["opType"] = self.opType.name
+        dataAsDict['opType'] = self.opType.name
+        dataAsDict['sourceOpType'] = self.sourceOpType
 
         return dataAsDict
 
