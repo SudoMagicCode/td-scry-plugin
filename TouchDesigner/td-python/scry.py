@@ -14,7 +14,7 @@ class scry:
         active_state: bool = self.ownerOp.par.Wsserveractive.eval()
         return active_state
 
-    def LogError(self, message: str, absFrame: int, severity: int, type, source: callable):
+    def LogError(self, message: str, absFrame: int, severity: int, type, source: OP):
         error: scryEntities.scryError = scryEntities.scryError(
             message=message,
             severity=severity,
@@ -41,8 +41,10 @@ class scry:
     def _relay_msg(self, msg: scryEntities.scryAbstractMessage) -> None:
         clients = self.Web_server_DAT.webSocketConnections
 
+        print(msg.messageType)
+
         for each in clients:
-            msg = {
+            output = {
                 'source': {
                     'app': 'TouchDesigner',
                     'build': self.build,
@@ -53,4 +55,4 @@ class scry:
                     'contents': msg.toDict
                 }
             }
-            self.Web_server_DAT.webSocketSendText(each, json.dumps(msg))
+            self.Web_server_DAT.webSocketSendText(each, json.dumps(output))
