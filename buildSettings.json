@@ -1,8 +1,8 @@
 {
     "BUILD": "TRUE",
-    "TD_VERSION": "2025.31740",
+    "TD_VERSION": "2025.32280",
     "PROJECT_FILE": "./TouchDesigner/project.toe",
-    "COMP_NAME": "scry_plugin",
+    "COMP_NAME": "scryPlugin",
     "BUILD_CONTENTS": "packageZip",
     "USE_TDM": false
 }
